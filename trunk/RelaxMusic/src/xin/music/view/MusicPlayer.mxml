@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view:MusicPlayerClass xmlns:fx="http://ns.adobe.com/mxml/2009"
+					   xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   xmlns:music="xin.music.*"
+					   creationComplete="musicplayerclass1_creationCompleteHandler(event)"
+					   xmlns:view="xin.music.view.*"
+					   xmlns:control="xin.music.control.*">
+
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+		<control:Control id="control"/>
+	</fx:Declarations>
+	<s:VGroup width="350"
+			  height="500">
+		<s:Group width="100%"
+				 height="30">
+			<s:Label left="20"
+					 width="250"
+					 height="100%"
+					 fontSize="16"
+					 fontWeight="bold"
+					 verticalAlign="middle"
+					 text="{songName}"/>
+			<s:Label right="30"
+					 height="100%"
+					 verticalAlign="middle"
+					 text="无序播放:"/>
+			<s:CheckBox id="randomPlayCB"
+						top="4"
+						right="10"
+						mouseFocusEnabled="false"
+						change="randomPlayCB_changeHandler(event)"/>
+		</s:Group>
+		<s:Group width="100%"
+				 height="20">
+			<s:Label width="250"
+					 height="100%"
+					 verticalAlign="middle"
+					 paddingLeft="20"
+					 text="{songAlbum}"/>
+			<s:Label right="30"
+					 height="100%"
+					 verticalAlign="middle"
+					 text="单曲循环:"/>
+			<s:CheckBox id="loopPlayCB"
+						top="0"
+						right="10"
+						mouseFocusEnabled="false"
+						change="loopPlayCB_changeHandler(event)"/>
+		</s:Group>
+		<s:HGroup width="100%"
+				  height="20"
+				  verticalAlign="middle"
+				  gap="10">
+			<s:Label width="50"
+					 textAlign="center"
+					 text="{playbackPosition}"/>
+			<s:HSlider width="220"
+					   id="slider"
+					   dataTipFormatFunction="formatTipFunction"
+					   mouseFocusEnabled="false"
+					   change="slider_changeHandler(event)"/>
+			<s:Label width="50"
+					 textAlign="center"
+					 text="{musicLength}"/>
+		</s:HGroup>
+		<s:HGroup width="100%"
+				  height="50"
+				  verticalAlign="middle"
+				  horizontalAlign="center">
+			<s:Image id="openBtn"
+					 source="{m.images.open}"
+					 smooth="true"
+					 smoothingQuality="high"
+					 mouseFocusEnabled="false"
+					 click="openBtn_clickHandler(event)"/>
+			<s:Image id="preBtn"
+					 source="{m.images.preImage}"
+					 smooth="true"
+					 smoothingQuality="high"
+					 mouseFocusEnabled="false"
+					 click="preBtn_clickHandler(event)"/>
+			<s:Image id="playBtn"
+					 source="{m.images.playImage}"
+					 smooth="true"
+					 smoothingQuality="high"
+					 mouseFocusEnabled="false"
+					 click="playBtn_clickHandler(event)"/>
+			<s:Image id="nextBtn"
+					 source="{m.images.nextImage}"
+					 smooth="true"
+					 smoothingQuality="high"
+					 mouseFocusEnabled="false"
+					 click="nextBtn_clickHandler(event)"/>
+			<s:Image id="stopBtn"
+					 source="{m.images.stopImage2}"
+					 smooth="true"
+					 smoothingQuality="high"
+					 mouseFocusEnabled="false"
+					 click="stopBtn_clickHandler(event)"/>
+			<s:Image id="soundBtn"
+					 source="{m.images.sound}"
+					 smooth="true"
+					 smoothingQuality="high"
+					 mouseFocusEnabled="false"/>
+			<s:HSlider id="soundSlider"
+					   width="50"
+					   minimum="0"
+					   maximum="1"
+					   snapInterval="0.1"
+					   value="1"
+					   dataTipFormatFunction="formatSoundTipFunction"
+					   mouseFocusEnabled="false"
+					   change="soundSlider_changeHandler(event)"/>
+		</s:HGroup>
+		<s:List id="songList"
+				width="100%"
+				height="350"
+				borderColor="#DDDDDD"
+				selectionColor="#DDDDDD"
+				dataProvider="{m.musicList}"
+				itemRenderer="xin.music.view.renderer.MusicItemRenderer"/>
+	</s:VGroup>
+</view:MusicPlayerClass>

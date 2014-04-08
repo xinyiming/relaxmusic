@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+					   xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   xmlns:view="xin.music.view.*"
+					   width="350"
+					   height="500"
+					   title="轻松一刻"
+					   status="{m.status}"
+					   applicationComplete="windowedapplication1_applicationCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+
+			import xin.music.model.Model;
+			import xin.music.model.ModelLocator;
+
+			private var ml:ModelLocator = ModelLocator.getInstance();
+			[Bindable]
+			public var m:Model = ml.model;
+
+			protected function windowedapplication1_applicationCompleteHandler(event:FlexEvent):void
+			{
+				var mainbounds:Rectangle = Screen.mainScreen.bounds;
+				var win_width:int = this.nativeWindow.width;
+				var win_height:int = this.nativeWindow.height;
+				var win_bounds:Rectangle = new Rectangle((mainbounds.width - win_width) / 2, (mainbounds.height - win_height) / 2, win_width, win_height);
+				bounds = win_bounds;
+
+				stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownFunc);
+			}
+
+			protected function keyDownFunc(event:KeyboardEvent):void
+			{
+//				trace("event.keyCode = " + event.keyCode);
+				switch(event.keyCode)
+				{
+					case 13: //回车键
+						musicPlayer.control.stop();
+						break;
+					case 32: //空格键
+						musicPlayer.control.playMusic();
+						break;
+					case 37: //方向左键
+						musicPlayer.control.playPre();
+						break;
+					case 38: //方向上键
+						musicPlayer.control.playPre();
+						break;
+					case 39: //方向右键
+						musicPlayer.control.playNext();
+						break;
+					case 40: //方向下键
+						musicPlayer.control.playNext();
+						break;
+				}
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<fx:Style source="assets/style.css"/>
+	<view:MusicPlayer id="musicPlayer"/>
+</s:WindowedApplication>

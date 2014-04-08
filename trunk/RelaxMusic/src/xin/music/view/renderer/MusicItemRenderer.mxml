@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<renderer:MusicItemRendererClass xmlns:fx="http://ns.adobe.com/mxml/2009"
+								 xmlns:s="library://ns.adobe.com/flex/spark"
+								 xmlns:mx="library://ns.adobe.com/flex/mx"
+								 xmlns:renderer="xin.music.view.renderer.*"
+								 doubleClickEnabled="true"
+								 rollOverEffect="{glow1}"
+								 doubleClick="musicitemrendererclass1_doubleClickHandler(event)">
+
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+		<mx:Glow id="glow1"
+				 duration="500"
+				 alphaFrom="1"
+				 alphaTo="0.3"
+				 blurXFrom="0"
+				 blurXTo="{width}"
+				 blurYFrom="0"
+				 blurYTo="{height}"
+				 color="#DDDDDD"/>
+	</fx:Declarations>
+	<s:HGroup width="330"
+			  height="30"
+			  verticalAlign="middle">
+		<s:Image id="musicImage"
+				 width="30"
+				 height="25"
+				 fillMode="scale"
+				 smooth="true"
+				 smoothingQuality="high"/>
+		<s:Label width="245"
+				 text="{musicName}"/>
+		<s:Label width="50"
+				 text="{musicSize}"/>
+	</s:HGroup>
+</renderer:MusicItemRendererClass>
