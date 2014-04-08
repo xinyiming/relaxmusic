@@ -1,0 +1,15 @@
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+global
+{
+	chrome-color: #EEEEEE;
+	color: #888888;
+	content-background-color: #FFFFFF;
+	symbol-color: #333333;
+	roll-over-color: #EEEEEE;
+	selection-color: #CEDEEF;
+	focus-color: #CC9C66;
+	fontSize: 12;
+	fontFamily:"微软雅黑";
+}
