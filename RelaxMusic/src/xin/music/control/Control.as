@@ -438,6 +438,8 @@ package xin.music.control
 			openStream.close();
 //			}
 			findMusic(event.target as File);
+
+			m.status = "共 " + m.musicList.length + " 首歌曲";
 		}
 
 		public function changeVolume(value:Number):void
