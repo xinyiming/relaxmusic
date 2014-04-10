@@ -65,8 +65,6 @@ package xin.music.control
 					findMusic(new File(dir));
 				}
 			}
-
-			m.status = "共 " + m.musicList.length + " 首歌曲";
 		}
 
 		private function findMusic(file:File):void
@@ -438,8 +436,6 @@ package xin.music.control
 			openStream.close();
 //			}
 			findMusic(event.target as File);
-
-			m.status = "共 " + m.musicList.length + " 首歌曲";
 		}
 
 		public function changeVolume(value:Number):void
