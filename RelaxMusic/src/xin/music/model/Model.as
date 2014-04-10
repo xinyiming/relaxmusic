@@ -15,9 +15,6 @@ package xin.music.model
 		[Bindable]
 		public var musicList:ArrayCollection;
 
-		[Bindable]
-		public var status:String = "";
-
 		public function Model()
 		{
 			images = new Images();

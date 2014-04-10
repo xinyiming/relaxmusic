@@ -6,7 +6,7 @@
 					   width="350"
 					   height="500"
 					   title="轻松一刻"
-					   status="{m.status}"
+					   status="共 {m.musicList.length} 首歌曲"
 					   applicationComplete="windowedapplication1_applicationCompleteHandler(event)">
 	<fx:Script>
 		<![CDATA[
