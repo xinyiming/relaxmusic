@@ -4,7 +4,7 @@
 					   xmlns:mx="library://ns.adobe.com/flex/mx"
 					   xmlns:view="xin.music.view.*"
 					   width="350"
-					   height="500"
+					   height="520"
 					   title="轻松一刻"
 					   status="共 {m.musicList.length} 首歌曲"
 					   applicationComplete="windowedapplication1_applicationCompleteHandler(event)">
@@ -61,5 +61,8 @@
 		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
 	</fx:Declarations>
 	<fx:Style source="assets/style.css"/>
-	<view:MusicPlayer id="musicPlayer"/>
+	<view:MusicPlayer id="musicPlayer"
+					  top="0"
+					  width="350"
+					  height="500"/>
 </s:WindowedApplication>
